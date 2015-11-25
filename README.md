@@ -6,6 +6,8 @@ The [nginx-fpds-beta.conf](nginx-fpds-beta.conf) file proxies requests to the FP
 
 To test, update the configuration and launch with `nginx -c <file>`. Then use cURL or wget to call the server. The proxy will send the entire path and query paramters as-is to the FPDS server. If you use self-signed certificates, you may need to provide the public key manually to cURL or wget (e.g., by using the `--cacert` option to cURL). For cURL, the following will forward a query on the ATOM feed. Note that the request forces a TLS 1.0 request to the server. Replace `<proxy_host>` with the location you deploy your proxy.
 
+This proxying will not resolve issues with URLs that directly point to FPDS or the beta environment. However, a judicious use of a hosts configuration on the client server, to point the client to proxy directly.
+
 ### Retrieving the FPDS Front Page
 
 ```
